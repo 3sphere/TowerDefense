@@ -1,2 +1,10 @@
-﻿  Grid.cpp
+﻿  Actor.cpp
+  Enemy.cpp
+  Game.cpp
+  Grid.cpp
+  main.cpp
+  SpriteComponent.cpp
+  Tile.cpp
+  Tower.cpp
+  Generating Code...
   TowerDefense.vcxproj -> F:\Visual Studio\C++\Game Programming\SDL Game Framework\TowerDefense\bin\Debug\TowerDefense.exe

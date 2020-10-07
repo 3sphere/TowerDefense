@@ -142,12 +142,12 @@
     <ClCompile Include="src\BGSpriteComponent.cpp" />
     <ClCompile Include="src\CircleComponent.cpp" />
     <ClCompile Include="src\Component.cpp" />
+    <ClCompile Include="src\Enemy.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Grid.cpp" />
     <ClCompile Include="src\InputComponent.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MoveComponent.cpp" />
-    <ClCompile Include="src\NavComponent.cpp" />
     <ClCompile Include="src\Random.cpp" />
     <ClCompile Include="src\SpriteComponent.cpp" />
     <ClCompile Include="src\Tile.cpp" />
@@ -162,12 +162,12 @@
     <ClInclude Include="src\BGSpriteComponent.h" />
     <ClInclude Include="src\CircleComponent.h" />
     <ClInclude Include="src\Component.h" />
+    <ClInclude Include="src\Enemy.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Grid.h" />
     <ClInclude Include="src\InputComponent.h" />
     <ClInclude Include="src\Math.h" />
     <ClInclude Include="src\MoveComponent.h" />
-    <ClInclude Include="src\NavComponent.h" />
     <ClInclude Include="src\Random.h" />
     <ClInclude Include="src\SpriteComponent.h" />
     <ClInclude Include="src\Tile.h" />

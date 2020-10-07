@@ -9,6 +9,7 @@
 class Actor;
 class SpriteComponent;
 class Grid;
+class Enemy;
 
 class Game
 {
@@ -28,6 +29,9 @@ public:
 	SDL_Texture* GetTexture(const std::string& filePath);
 
 	// Game-specific
+	void AddEnemy(Enemy* e);
+	void RemoveEnemy(Enemy* e);
+	Grid* GetGrid() const { return mGrid; }
 
 private:
 	void ProcessInput();
@@ -51,4 +55,5 @@ private:
 	// Game-specific
 	// -------------
 	Grid* mGrid;
+	std::vector<Enemy*> mEnemies;
 };

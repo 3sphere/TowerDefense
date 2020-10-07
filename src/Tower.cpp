@@ -13,4 +13,9 @@ Tower::Tower(Game* game) :
 
 void Tower::UpdateActor(float deltaTime)
 {
+	mCooldown -= deltaTime;
+	if (mCooldown <= 0.0f)
+	{
+
+	}
 }

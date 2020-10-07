@@ -155,6 +155,20 @@ SDL_Texture* Game::GetTexture(const std::string& filePath)
 	}
 }
 
+void Game::AddEnemy(Enemy* e)
+{
+	mEnemies.emplace_back(e);
+}
+
+void Game::RemoveEnemy(Enemy* e)
+{
+	auto iter = std::find(mEnemies.begin(), mEnemies.end(), e);
+	if (iter != mEnemies.end())
+	{
+		mEnemies.erase(iter);
+	}
+}
+
 void Game::ProcessInput()
 {
 	SDL_Event event;
