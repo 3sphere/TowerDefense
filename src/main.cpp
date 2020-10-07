@@ -2,14 +2,14 @@
 
 int main(int argc, char** argv)
 {
-	Game aeroplane;
+	Game game;
 
-	if (aeroplane.Initialise())
+	if (game.Initialise())
 	{
-		aeroplane.RunLoop();
+		game.RunLoop();
 	}
 
-	aeroplane.Shutdown();
+	game.Shutdown();
 
 	return 0;
 }
