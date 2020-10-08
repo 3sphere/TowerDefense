@@ -5,6 +5,7 @@
 #include "BGSpriteComponent.h"
 #include "Random.h"
 #include "Grid.h"
+#include "Enemy.h"
 
 Game::Game() :
 	mWindow(nullptr),
@@ -167,6 +168,13 @@ void Game::RemoveEnemy(Enemy* e)
 	{
 		mEnemies.erase(iter);
 	}
+}
+
+Enemy* Game::GetNearestEnemy(const Vector2& pos) const
+{
+	return *std::min_element(mEnemies.begin(), mEnemies.end(),
+		[=](const Enemy* a, const Enemy* b) {return (a->GetPosition() - pos).MagnitudeSquared() < (b->GetPosition() - pos).MagnitudeSquared(); }
+	);
 }
 
 void Game::ProcessInput()

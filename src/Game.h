@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include <unordered_map>
 #include <string>
+#include "Math.h"
 
 class Actor;
 class SpriteComponent;
@@ -33,6 +34,7 @@ public:
 	void RemoveEnemy(Enemy* e);
 	Grid* GetGrid() const { return mGrid; }
 	std::vector<Enemy*> GetEnemies() const { return mEnemies; }
+	Enemy* GetNearestEnemy(const Vector2& pos) const;
 
 private:
 	void ProcessInput();

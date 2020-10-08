@@ -214,7 +214,6 @@ void Grid::BuildTower()
 		mSelectedTile->mBlocked = true;
 		if (FindPath(GetEndTile(), GetStartTile()))
 		{
-			// build tower
 			Tower* tower = new Tower(GetGame());
 			tower->SetPosition(mSelectedTile->GetPosition());
 		}

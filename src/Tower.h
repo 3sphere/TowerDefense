@@ -1,6 +1,8 @@
 #pragma once
 #include "Actor.h"
 
+class Enemy;
+
 class Tower : public Actor
 {
 public:
@@ -8,8 +10,8 @@ public:
 	void UpdateActor(float deltaTime) override;
 
 private:
-	float mCooldown;
+	float mAttackCooldown;
 
-	const float COOLDOWN = 2.5f;
+	const float ATTACK_COOLDOWN = 2.5f;
 	const float ATTACK_RANGE = 50.0f;
 };
