@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <algorithm>
 #include "Tower.h"
+#include "Enemy.h"
 
 Grid::Grid(Game* game) :
 	Actor(game),
@@ -72,6 +73,16 @@ Grid::Grid(Game* game) :
 
 	FindPath(GetEndTile(), GetStartTile());
 	UpdatePathTiles(GetStartTile());
+}
+
+void Grid::UpdateActor(float deltaTime)
+{
+	mEnemyTimer -= deltaTime;
+	if (mEnemyTimer < 0.0f)
+	{
+		Enemy* enemy = new Enemy(GetGame());
+		mEnemyTimer = ENEMY_TIMER;
+	}
 }
 
 Tile* Grid::GetStartTile() const

@@ -32,6 +32,7 @@ public:
 	void AddEnemy(Enemy* e);
 	void RemoveEnemy(Enemy* e);
 	Grid* GetGrid() const { return mGrid; }
+	std::vector<Enemy*> GetEnemies() const { return mEnemies; }
 
 private:
 	void ProcessInput();

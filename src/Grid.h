@@ -11,7 +11,7 @@ class Grid : public Actor
 public:
 	Grid(Game* game);
 
-	//void UpdateActor(float deltaTime);
+	void UpdateActor(float deltaTime) override;
 	Tile* GetStartTile() const;
 	Tile* GetEndTile() const;
 	bool FindPath(Tile* goal, Tile* start);
@@ -27,7 +27,7 @@ private:
 	float mEnemyTimer;
 
 	const float TILE_SIZE = 64.0f;
-	const float ENEMY_TIMER = 1.5f;
+	const float ENEMY_TIMER = 2.5f;
 	const int NUM_ROWS = 12;
 	const int NUM_COLS = 16;
 };

@@ -4,6 +4,7 @@
 #include "Grid.h"
 #include "Tile.h"
 #include "CircleComponent.h"
+#include "EnemyNavComponent.h"
 
 Enemy::Enemy(Game* game) :
 	Actor(game)
@@ -18,6 +19,10 @@ Enemy::Enemy(Game* game) :
 
 	mCircle = new CircleComponent(this);
 	mCircle->SetRadius(25.0f);
+
+	EnemyNavComponent* enc = new EnemyNavComponent(this);
+	enc->SetNextTile(game->GetGrid()->GetStartTile()->GetParent());
+	enc->SetForwardSpeed(100.0f);
 }
 
 Enemy::~Enemy()
@@ -29,7 +34,7 @@ void Enemy::UpdateActor(float deltaTime)
 {
 	// Destroy actor if it reaches the end tile
 	Vector2 diff = GetPosition() - GetGame()->GetGrid()->GetEndTile()->GetPosition();
-	if (Math::NearZero(diff.Magnitude()))
+	if (Math::NearZero(diff.Magnitude(), 10.0f))
 	{
 		SetState(Dead);
 	}

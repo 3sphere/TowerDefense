@@ -43,13 +43,13 @@ void MoveComponent::Update(float deltaTime)
 				position.y = 0.0f;
 			}
 		}
-		else
+	  /*else
 		{
 			if (position.x < 0.0f || position.x > 1024.0f || position.y < 0.0f || position.y > 768.0f)
 			{
 				mOwner->SetState(Actor::Dead);
 			}
-		}
+		}*/
 		
 		mOwner->SetPosition(position);
 	}
