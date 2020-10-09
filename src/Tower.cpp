@@ -4,6 +4,7 @@
 #include "Game.h"
 #include <algorithm>
 #include "Enemy.h"
+#include "Bullet.h"
 
 Tower::Tower(Game* game) :
 	Actor(game),
@@ -18,13 +19,21 @@ void Tower::UpdateActor(float deltaTime)
 	mAttackCooldown -= deltaTime;
 
 	// turn to face nearest enemy
-	Vector2 dir = GetGame()->GetNearestEnemy(GetPosition())->GetPosition() - GetPosition();
-	float rotation = Math::Atan2(-dir.y, dir.x);
-	SetRotation(rotation);
-
-	if (mAttackCooldown <= 0.0f)
+	Enemy* nearestEnemy = GetGame()->GetNearestEnemy(GetPosition());
+	if (nearestEnemy)
 	{
-		// fire projectile
-		mAttackCooldown = ATTACK_COOLDOWN;
+		Vector2 diff = nearestEnemy->GetPosition() - GetPosition();
+		float rotation = Math::Atan2(-diff.y, diff.x);
+		SetRotation(rotation);
+
+		if (mAttackCooldown <= 0.0f && diff.Magnitude() <= ATTACK_RANGE)
+		{
+			Bullet* bullet = new Bullet(GetGame());
+			bullet->SetPosition(GetPosition() + GetForward() * 20.0f);
+			bullet->SetRotation(GetRotation());
+			mAttackCooldown = ATTACK_COOLDOWN;
+		}
 	}
+	SDL_Log("%f\n", mAttackCooldown);
+
 }

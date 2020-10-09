@@ -140,6 +140,7 @@
     <ClCompile Include="src\AIComponent.cpp" />
     <ClCompile Include="src\AnimSpriteComponent.cpp" />
     <ClCompile Include="src\BGSpriteComponent.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\CircleComponent.cpp" />
     <ClCompile Include="src\Component.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
@@ -162,6 +163,7 @@
     <ClInclude Include="src\AIState.h" />
     <ClInclude Include="src\AnimSpriteComponent.h" />
     <ClInclude Include="src\BGSpriteComponent.h" />
+    <ClInclude Include="src\Bullet.h" />
     <ClInclude Include="src\CircleComponent.h" />
     <ClInclude Include="src\Component.h" />
     <ClInclude Include="src\Enemy.h" />

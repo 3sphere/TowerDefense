@@ -172,9 +172,25 @@ void Game::RemoveEnemy(Enemy* e)
 
 Enemy* Game::GetNearestEnemy(const Vector2& pos) const
 {
-	return *std::min_element(mEnemies.begin(), mEnemies.end(),
-		[=](const Enemy* a, const Enemy* b) {return (a->GetPosition() - pos).MagnitudeSquared() < (b->GetPosition() - pos).MagnitudeSquared(); }
-	);
+	Enemy* bestEnemy = nullptr;
+
+	if (mEnemies.size() > 0)
+	{
+		float bestDistance = std::numeric_limits<float>::infinity();
+		for (auto enemy : mEnemies)
+		{
+			// Calculate squared distance to avoid calculating a square root
+			float distance = (pos - enemy->GetPosition()).MagnitudeSquared();
+
+			if (distance < bestDistance)
+			{
+				bestDistance = distance;
+				bestEnemy = enemy;
+			}
+		}
+	}
+
+	return bestEnemy;
 }
 
 void Game::ProcessInput()

@@ -13,5 +13,5 @@ private:
 	float mAttackCooldown;
 
 	const float ATTACK_COOLDOWN = 2.5f;
-	const float ATTACK_RANGE = 50.0f;
+	const float ATTACK_RANGE = 150.0f;
 };

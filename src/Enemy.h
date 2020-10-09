@@ -10,7 +10,10 @@ public:
 	~Enemy();
 
 	void UpdateActor(float deltaTime) override;
+	CircleComponent* GetCircle() const { return mCircle; }
+	void TakeHit(float damage);
 
 private:
 	CircleComponent* mCircle;
+	float mHealth;
 };

@@ -7,7 +7,8 @@
 #include "EnemyNavComponent.h"
 
 Enemy::Enemy(Game* game) :
-	Actor(game)
+	Actor(game),
+	mHealth(5.0f)
 {
 	game->AddEnemy(this);
 
@@ -18,7 +19,7 @@ Enemy::Enemy(Game* game) :
 	SetPosition(game->GetGrid()->GetStartTile()->GetPosition());
 
 	mCircle = new CircleComponent(this);
-	mCircle->SetRadius(25.0f);
+	mCircle->SetRadius(15.0f);
 
 	EnemyNavComponent* enc = new EnemyNavComponent(this);
 	enc->SetNextTile(game->GetGrid()->GetStartTile()->GetParent());
@@ -37,5 +38,14 @@ void Enemy::UpdateActor(float deltaTime)
 	if (Math::NearZero(diff.Magnitude(), 10.0f))
 	{
 		SetState(Dead);
+	}
+}
+
+void Enemy::TakeHit(float damage)
+{
+	mHealth -= damage;
+	if (mHealth <= 0.0f)
+	{
+		SetState(Actor::Dead);
 	}
 }
